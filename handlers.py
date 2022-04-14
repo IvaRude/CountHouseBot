@@ -1,9 +1,11 @@
-from aiogram.utils.helper import Helper, HelperMode, ListItem
 from aiogram import types
+from aiogram.utils.helper import Helper, HelperMode, ListItem
+
+from cian.async_cian_average import async_find_average
+from cian.cian_average import find_average
 from dispatcher import bot, dp
 from keyboards import keyboard1, keyboard2, \
     object_type_keyboard, room_keyboard, final_keyboard
-from cian.cian_average import find_average
 
 
 class TestStates(Helper):
@@ -33,7 +35,7 @@ async def info(message: types.Message):
 
 async def count_cian(user_id, link):
     await bot.send_message(user_id, "Сейчас посчитаю...")
-    res = find_average(link)
+    res = await async_find_average(link)
     await bot.send_message(user_id, res)
 
 

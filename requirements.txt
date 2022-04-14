@@ -1,0 +1,5 @@
+aiogram
+requests
+aiohttp
+bs4
+lxml
